@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('airports', function (Blueprint $table) {
+        Schema::create('transaction_pessengers', function (Blueprint $table) {
             $table->id();
-            $table->String('iata_code');
-            $table->String('name');
-            $table->String('image');
-            $table->String('city');
-            $table->String('country');
-            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -32,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('airports');
+        Schema::dropIfExists('transaction_pessengers');
     }
 };
