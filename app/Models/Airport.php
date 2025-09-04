@@ -16,3 +16,4 @@ class Airport extends Model
         'country',
     ];
 }
+//fix airport soft delete
