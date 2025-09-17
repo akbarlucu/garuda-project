@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('flight_segments', function (Blueprint $table) {
             $table->id();
+            $table->int('sequence');
+            $table->foreignId('flight_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('airport_id')->constrained()->cascadeOnDelete();
+            $table->time('time');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

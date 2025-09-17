@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('flight_class_facility', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('flight_class_id')->references('id')->on('flight_classes')->onDelete('cascade');
+            $table->foreignId('facility_id')->references('facilites')->on('flight_classes')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('facilities', function (Blueprint $table) {
             $table->id();
+            $table->string('image');
+            $table->string('name');
+            $table->string('description');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
