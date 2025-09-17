@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('row');
             $table->string('column');
             $table->enum('class_type', ['ecomomy','bussiness']);
-            $table->boolean('is_available');
+            $table->boolean('is_available')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

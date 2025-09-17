@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('promo_codes', function (Blueprint $table) {
             $table->id();
+            $table->String('code');
+            $table->enum('discount_type',['fix','percentage']);
+            $table->integer('discount');
+            $table->dateTime('valid_until');
+            $table->boolean('is_used')->default(false);
             $table->timestamps();
         });
     }

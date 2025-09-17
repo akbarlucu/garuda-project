@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('transaction_pessengers', function (Blueprint $table) {
+        Schema::create('flight_class_facilities', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('flight_class_id')->references('id')->on('flight_classes')->onDelete('cascade');
+            $table->foreignId('facility_id')->references('id')->on('facilities')->on('flight_classes')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaction_pessengers');
+        Schema::dropIfExists('flight_class_facility');
     }
 };

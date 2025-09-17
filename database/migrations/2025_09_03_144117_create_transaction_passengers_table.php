@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('flight_class_facility', function (Blueprint $table) {
+        Schema::create('transaction_passengers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('flight_class_id')->references('id')->on('flight_classes')->onDelete('cascade');
-            $table->foreignId('facility_id')->references('facilites')->on('flight_classes')->onDelete('cascade');
+            $table->foreignId('transaction_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('flight_seat_id')->constrained()->cascadeOnDelete();
+            $table->string('name');
+            $table->date('date_of_birth');
+            $table->string('nationality');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('flight_class_facility');
+        Schema::dropIfExists('transaction_pessengers');
     }
 };
